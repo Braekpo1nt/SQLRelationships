@@ -1,0 +1,4 @@
+name: Relationships
+version: '1.0-SNAPSHOT'
+main: org.braekpo1nt.relationships.Relationships
+api-version: '1.21'
