@@ -1,0 +1,49 @@
+package org.braekpo1nt.relationships.database;
+
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+@DatabaseTable(tableName = "guilds")
+public class Guild {
+    @DatabaseField(generatedId = true)
+    private int id;
+    @DatabaseField(canBeNull = false)
+    private String name;
+    private String tag;
+    private String description;
+    
+    public Guild() {
+    }
+    
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public String getTag() {
+        return tag;
+    }
+    
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}

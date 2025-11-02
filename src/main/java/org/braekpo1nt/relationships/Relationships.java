@@ -4,6 +4,7 @@ import org.braekpo1nt.relationships.database.Database;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.SQLException;
+import java.util.logging.Level;
 
 public final class Relationships extends JavaPlugin {
     
@@ -20,7 +21,9 @@ public final class Relationships extends JavaPlugin {
             // create database connection
             this.database = new Database(getDataFolder().getAbsolutePath() + "database.db");
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            getLogger().log(Level.SEVERE, "Can't reach database", e);
+            getServer().getPluginManager().disablePlugin(this);
+            return;
         }
     }
     
