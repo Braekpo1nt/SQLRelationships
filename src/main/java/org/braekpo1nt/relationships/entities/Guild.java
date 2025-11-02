@@ -52,4 +52,8 @@ public class Guild {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public ForeignCollection<GuildPlayer> getMembers() {
+        return members;
+    }
 }
