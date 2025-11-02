@@ -1,6 +1,8 @@
-package org.braekpo1nt.relationships.database;
+package org.braekpo1nt.relationships.entities;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "guilds")
@@ -11,6 +13,10 @@ public class Guild {
     private String name;
     private String tag;
     private String description;
+    
+    // foreignFieldName is the field in GuildPlayer (guild) that this matches up with
+    @ForeignCollectionField(foreignFieldName = "guild")
+    private ForeignCollection<GuildPlayer> members;
     
     public Guild() {
     }
