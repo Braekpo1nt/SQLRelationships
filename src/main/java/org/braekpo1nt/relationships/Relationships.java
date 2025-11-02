@@ -11,6 +11,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.braekpo1nt.relationships.database.Database;
 import org.braekpo1nt.relationships.entities.Guild;
 import org.braekpo1nt.relationships.entities.GuildPlayer;
+import org.braekpo1nt.relationships.listeners.JoinListener;
 import org.braekpo1nt.relationships.service.GuildService;
 import org.braekpo1nt.relationships.service.PlayerService;
 import org.bukkit.command.CommandSender;
@@ -41,6 +42,9 @@ public final class Relationships extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
+        
+        // register listeners
+        getServer().getPluginManager().registerEvents(new JoinListener(playerService), this);
         
         // create our services
         this.playerService = new PlayerService(database.getGuildPlayerDao(), getLogger());

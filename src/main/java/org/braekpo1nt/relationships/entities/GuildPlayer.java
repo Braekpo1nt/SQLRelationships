@@ -2,6 +2,7 @@ package org.braekpo1nt.relationships.entities;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import org.bukkit.entity.Player;
 
 @DatabaseTable(tableName = "players")
 public class GuildPlayer {
@@ -17,6 +18,11 @@ public class GuildPlayer {
     
     public GuildPlayer() {
         
+    }
+    
+    public GuildPlayer(Player player) {
+        this.uuid = player.getUniqueId().toString();
+        this.name = player.getName();
     }
     
     public String getUuid() {
