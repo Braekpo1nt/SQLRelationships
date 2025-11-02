@@ -1,5 +1,7 @@
 package org.braekpo1nt.relationships.database;
 
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import org.braekpo1nt.relationships.entities.Guild;
@@ -12,11 +14,18 @@ import java.sql.SQLException;
  */
 public class Database {
     
+    private final Dao<Guild, Integer> guildDao;
+    private final Dao<GuildPlayer, String> guildPlayerDao;
+    
     public Database(String path) throws SQLException {
         JdbcConnectionSource connectionSource = new JdbcConnectionSource("jdbc:sqlite:" + path);
         
         // create the tables, this also registers the foreign keys
         TableUtils.createTableIfNotExists(connectionSource, Guild.class);
         TableUtils.createTableIfNotExists(connectionSource, GuildPlayer.class);
+        
+        // create the DAOs
+        this.guildDao = DaoManager.createDao(connectionSource, Guild.class);
+        this.guildPlayerDao = DaoManager.createDao(connectionSource, GuildPlayer.class);
     }
 }
