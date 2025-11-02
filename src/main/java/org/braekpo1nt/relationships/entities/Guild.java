@@ -9,7 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
 public class Guild {
     @DatabaseField(generatedId = true)
     private int id;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = false, unique = true)
     private String name;
     private String tag;
     private String description;
@@ -19,6 +19,10 @@ public class Guild {
     private ForeignCollection<GuildPlayer> members;
     
     public Guild() {
+    }
+    
+    public Guild(String name) {
+        this.name = name;
     }
     
     public int getId() {
