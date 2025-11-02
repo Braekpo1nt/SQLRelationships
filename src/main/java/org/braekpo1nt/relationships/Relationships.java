@@ -1,6 +1,7 @@
 package org.braekpo1nt.relationships;
 
 import org.braekpo1nt.relationships.database.Database;
+import org.braekpo1nt.relationships.service.PlayerService;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.SQLException;
@@ -9,6 +10,7 @@ import java.util.logging.Level;
 public final class Relationships extends JavaPlugin {
     
     private Database database;
+    private PlayerService playerService;
     
     @Override
     public void onEnable() {
@@ -25,6 +27,9 @@ public final class Relationships extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
+        
+        // create our services
+        this.playerService = new PlayerService(database.getGuildPlayerDao(), getLogger());
     }
     
     @Override

@@ -28,4 +28,15 @@ public class Database {
         this.guildDao = DaoManager.createDao(connectionSource, Guild.class);
         this.guildPlayerDao = DaoManager.createDao(connectionSource, GuildPlayer.class);
     }
+    
+    // the service layer uses the daos, adding abstraction
+    
+    
+    public Dao<Guild, Integer> getGuildDao() {
+        return guildDao;
+    }
+    
+    public Dao<GuildPlayer, String> getGuildPlayerDao() {
+        return guildPlayerDao;
+    }
 }
