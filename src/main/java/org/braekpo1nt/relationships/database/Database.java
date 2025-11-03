@@ -28,6 +28,7 @@ public class Database {
         TableUtils.createTableIfNotExists(connectionSource, Guild.class);
         TableUtils.createTableIfNotExists(connectionSource, GuildPlayer.class);
         TableUtils.createTableIfNotExists(connectionSource, Achievement.class);
+        TableUtils.createTableIfNotExists(connectionSource, PlayerAchievement.class);
         
         // create the DAOs
         this.guildDao = DaoManager.createDao(connectionSource, Guild.class);
