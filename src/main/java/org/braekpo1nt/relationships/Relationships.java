@@ -43,12 +43,12 @@ public final class Relationships extends JavaPlugin {
             return;
         }
         
-        // register listeners
-        getServer().getPluginManager().registerEvents(new JoinListener(playerService), this);
-        
         // create our services
         this.playerService = new PlayerService(database.getGuildPlayerDao(), getLogger());
         this.guildService = new GuildService(database.getGuildDao(), database.getGuildPlayerDao(), getLogger());
+        
+        // register listeners
+        getServer().getPluginManager().registerEvents(new JoinListener(playerService), this);
         
         // register commands
         LiteralCommandNode<CommandSourceStack> createGuild = Commands.literal("createguild")
