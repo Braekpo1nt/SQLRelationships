@@ -26,6 +26,16 @@ public class AchievementService {
         this.logger = logger;
     }
     
+    public Achievement create(Achievement achievement) {
+        try {
+            achievementDao.create(achievement);
+            return achievement;
+        } catch (SQLException e) {
+            logger.log(Level.SEVERE, "could not create Achievement", e);
+            return null;
+        }
+    }
+    
     public boolean addAchievementToPlayer(GuildPlayer guildPlayer, Achievement achievement) {
         try {
             PlayerAchievement playerAchievement = new PlayerAchievement();
