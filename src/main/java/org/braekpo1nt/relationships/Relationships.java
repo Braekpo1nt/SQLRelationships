@@ -36,7 +36,7 @@ public final class Relationships extends JavaPlugin {
                 getDataFolder().mkdirs();
             }
             // create database connection
-            this.database = new Database(getDataFolder().getAbsolutePath() + "database.db");
+            this.database = new Database(getDataFolder().getAbsolutePath() + "/database.db");
         } catch (SQLException e) {
             getLogger().log(Level.SEVERE, "Can't reach database", e);
             getServer().getPluginManager().disablePlugin(this);

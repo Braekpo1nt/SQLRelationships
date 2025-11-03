@@ -11,7 +11,9 @@ public class Guild {
     private int id;
     @DatabaseField(canBeNull = false, unique = true)
     private String name;
+    @DatabaseField
     private String tag;
+    @DatabaseField
     private String description;
     
     // foreignFieldName is the field in GuildPlayer (guild) that this matches up with
