@@ -9,7 +9,7 @@ import java.util.Date;
  * The join table, represents the relationship between a single player and a single achievement
  */
 @DatabaseTable(tableName = "player_achievements")
-public class PlayerAchievements {
+public class PlayerAchievement {
     
     @DatabaseField(generatedId = true)
     private int id;
@@ -23,7 +23,7 @@ public class PlayerAchievements {
     @DatabaseField(canBeNull = false)
     private Date dateAchieved;
     
-    public PlayerAchievements() {
+    public PlayerAchievement() {
     }
     
     public int getId() {
